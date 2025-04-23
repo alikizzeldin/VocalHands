@@ -1,0 +1,12 @@
+opencv-python
+mediapipe
+numpy
+tensorflow
+pyttsx3
+Pillow
+gTTS>=2.2.0
+pyautogui>=0.9.53
+scikit-learn>=0.24.0
+matplotlib>=3.3.0
+kaggle>=1.5.12
+tqdm>=4.65.0 

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VocalHands - AI Sign Language Translator</title>
+  <!-- Tailwind CSS CDN (v3) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth; /* For smoother default scrolling */
+      background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+    }
+    .slide {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out, border 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+    }
+    .slide.active {
+      /* Fade in and move up */
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .slide.selected {
+      border: 2px solid #3B82F6; /* Blue border */
+      transform: scale(1.02);    /* Slight scale-up effect */
+    }
+  </style>
+</head>
+<body class="antialiased">
+  <!-- Navigation Bar -->
+  <nav class="fixed w-full z-20 top-0 bg-white shadow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Icon + Title -->
+        <div class="flex items-center space-x-2">
+          <!-- Replace with your actual image path -->
+          <img 
+            src="/VocalHands Logo.png"
+            alt="VocalHands Icon"
+            class="h-12 w-12"
+          />
+          <a href="#" class="text-2xl font-bold text-blue-600">VocalHands</a>
+        </div>
+
+        <div class="hidden md:flex space-x-4">
+          <!-- Match the order of slides below -->
+          <a href="#introducing" class="text-gray-700 hover:text-blue-600">Home</a>
+          <a href="#problem" class="text-gray-700 hover:text-blue-600">Problem</a>
+          <a href="#objectives" class="text-gray-700 hover:text-blue-600">Objectives</a>
+          <a href="#solution" class="text-gray-700 hover:text-blue-600">Solution</a>
+          <a href="#how-it-works" class="text-gray-700 hover:text-blue-600">How It Works</a>
+          <a href="#tech" class="text-gray-700 hover:text-blue-600">Tech</a>
+          <a href="#challenges" class="text-gray-700 hover:text-blue-600">Challenges</a>
+          <a href="#conclusion" class="text-gray-700 hover:text-blue-600">Conclusion</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="pt-24 pb-16 bg-gradient-to-br from-blue-600 to-blue-400 text-white text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h1 class="text-5xl md:text-6xl font-extrabold mb-4">Empowering Communication</h1>
+      <p class="text-xl md:text-2xl mb-8">
+        VocalHands transforms sign language into voice and text in real time using cutting‑edge AI.
+      </p>
+      <a
+        href="#introducing"
+        class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold shadow hover:bg-gray-100 transition"
+      >
+        Learn More
+      </a>
+    </div>
+  </section>
+
+  <!-- Slide Navigation Dots -->
+  <div
+    id="slide-navigation"
+    class="hidden md:flex flex-col fixed right-8 top-1/2 transform -translate-y-1/2 space-y-3 z-30"
+  >
+    <!-- The data-slide indices must match the slide order below -->
+    <button class="slide-nav-dot w-3 h-3 bg-gray-400 rounded-full" data-slide="0"></button>
+    <button class="slide-nav-dot w-3 h-3 bg-gray-400 rounded-full" data-slide="1"></button>
+    <button class="slide-nav-dot w-3 h-3 bg-gray-400 rounded-full" data-slide="2"></button>
+    <button class="slide-nav-dot w-3 h-3 bg-gray-400 rounded-full" data-slide="3"></button>
+    <button class="slide-nav-dot w-3 h-3 bg-gray-400 rounded-full" data-slide="4"></button>
+    <button class="slide-nav-dot w-3 h-3 bg-gray-400 rounded-full" data-slide="5"></button>
+    <button class="slide-nav-dot w-3 h-3 bg-gray-400 rounded-full" data-slide="6"></button>
+    <button class="slide-nav-dot w-3 h-3 bg-gray-400 rounded-full" data-slide="7"></button>
+  </div>
+
+  <!-- Presentation Slides -->
+  <main class="max-w-4xl mx-auto px-4 py-12 space-y-12">
+    <!-- 1. Introducing VocalHands (slide[0]) -->
+    <section
+      id="introducing"
+      class="slide bg-white bg-opacity-80 backdrop-blur rounded-xl shadow-lg p-8 flex flex-col md:flex-row items-center"
+    >
+      <div class="flex-shrink-0 mb-4 md:mb-0 md:mr-8">
+        <div class="bg-gradient-to-br from-blue-500 to-blue-300 p-4 rounded-full shadow-lg">
+          <!-- Icon: Chat Bubble -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-16 h-16 text-white"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M7 8h10M7 12h4m-5 8h12a2 2 0 002-2V7a2 2 0 00-2-2h-6l-2-2H7a2 2 0 00-2 2v11a2 2 0 002 2z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div>
+        <h2 class="text-3xl font-bold text-blue-600 mb-2">Introducing VocalHands</h2>
+        <p class="text-gray-700">
+          An innovative AI-powered platform that bridges communication gaps by converting sign language into natural voice and text.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. Problem & Motivation (slide[1]) -->
+    <section
+      id="problem"
+      class="slide bg-white bg-opacity-80 backdrop-blur rounded-xl shadow-lg p-8 flex flex-col md:flex-row items-center"
+    >
+      <div class="flex-shrink-0 mb-4 md:mb-0 md:mr-8">
+        <div class="bg-gradient-to-br from-red-500 to-red-300 p-4 rounded-full shadow-lg">
+          <!-- Icon: Exclamation Triangle -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-16 h-16 text-white"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10.29 3.86L1.82 18a1.5 1.5 0 001.29 2.14h16.78a1.5 1.5 0 001.29-2.14L13.71 3.86a1.5 1.5 0 00-2.42 0z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 9v2m0 4h.01"
+            />
+          </svg>
+        </div>
+      </div>
+      <div>
+        <h2 class="text-3xl font-bold text-red-600 mb-2">Problem & Motivation</h2>
+        <p class="text-gray-700 mb-3">
+          Millions of deaf and hard-of-hearing individuals face daily communication challenges due to a lack of real‑time translation tools.
+        </p>
+        <ul class="list-disc pl-6 text-gray-600">
+          <li>Limited accessible communication options</li>
+          <li>Absence of instantaneous translation technologies</li>
+          <li>Increased social isolation and information gaps</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3. Project Objectives (slide[2]) -->
+    <section
+      id="objectives"
+      class="slide bg-white bg-opacity-80 backdrop-blur rounded-xl shadow-lg p-8 flex flex-col md:flex-row items-center"
+    >
+      <div class="flex-shrink-0 mb-4 md:mb-0 md:mr-8">
+        <div class="bg-gradient-to-br from-green-500 to-green-300 p-4 rounded-full shadow-lg">
+          <!-- Icon: Target -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-16 h-16 text-white"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="10"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              r="6"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              r="2"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
+      <div>
+        <h2 class="text-3xl font-bold text-green-600 mb-2">Project Objectives</h2>
+        <ul class="list-disc pl-6 text-gray-700">
+          <li>Deliver accurate, real‑time sign language translation</li>
+          <li>Build an intuitive, user‑friendly interface</li>
+          <li>Support multiple sign language dialects and nuances</li>
+          <li>Continuously enhance translation accuracy with AI learning</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 4. AI Solution Overview (slide[3]) -->
+    <section
+      id="solution"
+      class="slide bg-white bg-opacity-80 backdrop-blur rounded-xl shadow-lg p-8 flex flex-col md:flex-row items-center"
+    >
+      <div class="flex-shrink-0 mb-4 md:mb-0 md:mr-8">
+        <div class="bg-gradient-to-br from-purple-500 to-purple-300 p-4 rounded-full shadow-lg">
+          <!-- Icon: Chip (AI) -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-16 h-16 text-white"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <rect
+              x="3"
+              y="3"
+              width="18"
+              height="18"
+              rx="2"
+              ry="2"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M7 7h.01M17 7h.01M7 17h.01M17 17h.01M12 7v10"
+            />
+          </svg>
+        </div>
+      </div>
+      <div>
+        <h2 class="text-3xl font-bold text-purple-600 mb-2">AI Solution Overview</h2>
+        <p class="text-gray-700 mb-3">
+          Utilizing advanced machine learning and computer vision, VocalHands deciphers complex sign gestures and converts them into natural language text and speech.
+        </p>
+        <ul class="list-disc pl-6 text-gray-600">
+          <li>Robust neural network models for gesture recognition</li>
+          <li>Real‑time computer vision processing</li>
+          <li>Contextual natural language processing integration</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 5. How VocalHands Works (slide[4]) -->
+    <section
+      id="how-it-works"
+      class="slide bg-white bg-opacity-80 backdrop-blur rounded-xl shadow-lg p-8 flex flex-col md:flex-row items-center"
+    >
+      <div class="flex-shrink-0 mb-4 md:mb-0 md:mr-8">
+        <div class="bg-gradient-to-br from-indigo-500 to-indigo-300 p-4 rounded-full shadow-lg">
+          <!-- Icon: Video Camera -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-16 h-16 text-white"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M4 6h8a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div>
+        <h2 class="text-3xl font-bold text-indigo-600 mb-2">How VocalHands Works</h2>
+        <ol class="list-decimal pl-6 text-gray-700 space-y-1">
+          <li>Capture real‑time video input.</li>
+          <li>Detect and interpret sign language gestures using AI.</li>
+          <li>Convert gestures into contextual text and voice output.</li>
+          <li>Continuously learn from user feedback to improve accuracy.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 6. Technology & Implementation (slide[5]) -->
+    <section
+      id="tech"
+      class="slide bg-white bg-opacity-80 backdrop-blur rounded-xl shadow-lg p-8 flex flex-col md:flex-row items-center"
+    >
+      <div class="flex-shrink-0 mb-4 md:mb-0 md:mr-8">
+        <div class="bg-gradient-to-br from-pink-500 to-pink-300 p-4 rounded-full shadow-lg">
+          <!-- Icon: Code Brackets -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-16 h-16 text-white"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <polyline
+              points="16 18 22 12 16 6"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <polyline
+              points="8 6 2 12 8 18"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
+      <div>
+        <h2 class="text-3xl font-bold text-pink-600 mb-2">Technology & Implementation</h2>
+        <ul class="list-disc pl-6 text-gray-700">
+          <li>TensorFlow and deep learning for gesture recognition</li>
+          <li>OpenCV for robust computer vision capabilities</li>
+          <li>Python and WebRTC for seamless real‑time processing</li>
+          <li>Scalable cloud infrastructure for high performance</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 7. Challenges & Future Steps (slide[6]) -->
+    <section
+      id="challenges"
+      class="slide bg-white bg-opacity-80 backdrop-blur rounded-xl shadow-lg p-8 flex flex-col md:flex-row items-center"
+    >
+      <div class="flex-shrink-0 mb-4 md:mb-0 md:mr-8">
+        <div class="bg-gradient-to-br from-yellow-500 to-yellow-300 p-4 rounded-full shadow-lg">
+          <!-- Icon: Wrench -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-16 h-16 text-white"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M14.7 5.3a1 1 0 010 1.4l-7.2 7.2a1 1 0 01-.7.3H4a1 1 0 01-1-1v-3.8a1 1 0 01.3-.7l7.2-7.2a1 1 0 011.4 0l2.6 2.6z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M18.36 8.64l2.6-2.6a1 1 0 010 1.4l-2.6 2.6"
+            />
+          </svg>
+        </div>
+      </div>
+      <div>
+        <h2 class="text-3xl font-bold text-yellow-600 mb-2">Challenges & Future Steps</h2>
+        <ul class="list-disc pl-6 text-gray-700">
+          <li>Enhance accuracy across diverse sign language dialects</li>
+          <li>Expand support for additional languages and regional nuances</li>
+          <li>Develop mobile and web applications for broader accessibility</li>
+          <li>Integrate with assistive technologies for a seamless user experience</li>
+          <li>Continuously refine AI models with real‑world feedback</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 8. Conclusion (slide[7]) -->
+    <section
+      id="conclusion"
+      class="slide bg-white bg-opacity-80 backdrop-blur rounded-xl shadow-lg p-8 flex flex-col md:flex-row items-center"
+    >
+      <div class="flex-shrink-0 mb-4 md:mb-0 md:mr-8">
+        <div class="bg-gradient-to-br from-teal-500 to-teal-300 p-4 rounded-full shadow-lg">
+          <!-- Icon: Check Badge -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-16 h-16 text-white"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 12l2 2 4-4"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div>
+        <h2 class="text-3xl font-bold text-teal-600 mb-2">Conclusion</h2>
+        <p class="text-gray-700 mb-4">
+          VocalHands is set to revolutionize communication by harnessing AI to break down barriers for the deaf community, creating a more inclusive society.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 py-6">
+    <div class="max-w-4xl mx-auto px-4 text-center text-gray-600">
+      &copy; 2025 VocalHands. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Grab references to slides and dots
+    const slides = document.querySelectorAll('.slide');
+    const navDots = document.querySelectorAll('.slide-nav-dot');
+
+    // Lower threshold => easier for IntersectionObserver to detect "in view"
+    const observerOptions = { threshold: 0.3 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          // Find which slide is intersecting
+          const slideIndex = Array.from(slides).indexOf(entry.target);
+          // Highlight the matching dot
+          navDots.forEach((dot) => dot.classList.remove('bg-blue-600'));
+          if (navDots[slideIndex]) {
+            navDots[slideIndex].classList.add('bg-blue-600');
+          }
+        }
+      });
+    }, observerOptions);
+
+    // Observe each slide
+    slides.forEach((slide) => observer.observe(slide));
+
+    // Helper function: scroll to the vertical center
+    function scrollToCenter(element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+        inline: 'nearest'
+      });
+    }
+
+    // Dot click => scroll & select the matching slide + highlight dot
+    navDots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const index = dot.getAttribute('data-slide');
+        const targetSlide = slides[index];
+        // Remove 'selected' from all slides
+        slides.forEach((s) => s.classList.remove('selected'));
+        // Select the target slide
+        targetSlide.classList.add('selected');
+
+        // Immediately highlight the clicked dot
+        navDots.forEach((d) => d.classList.remove('bg-blue-600'));
+        dot.classList.add('bg-blue-600');
+
+        // Center the slide
+        scrollToCenter(targetSlide);
+      });
+    });
+
+    // Clicking a slide => highlight it (blue border)
+    slides.forEach((slide) => {
+      slide.addEventListener('click', () => {
+        slides.forEach((s) => s.classList.remove('selected'));
+        slide.classList.add('selected');
+      });
+    });
+
+    // Header link => scroll & select the correct slide
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    navLinks.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        slides.forEach((s) => s.classList.remove('selected'));
+
+        const targetId = link.getAttribute('href').substring(1);
+        const targetSlide = document.getElementById(targetId);
+        if (targetSlide) {
+          targetSlide.classList.add('selected');
+          scrollToCenter(targetSlide);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
